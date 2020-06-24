@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
     font-weight: bolder;
     color: whitesmoke;
@@ -5,7 +9,6 @@ header {
     font-size: x-large;
     padding: 20px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 #search-text {
@@ -16,4 +19,35 @@ header {
     background-color: lightskyblue;
     padding-right: 10px;
     border-right: 20px;
+}
+
+#city-history {
+    padding: 20px;
+}
+
+.city-button {
+    padding: 10px;
+}
+
+#city-banner {
+    font-weight: bold;
+    font-size: large;
+}
+
+#today-weather {
+    border: solid;
+    border-color: lightslategray;
+    border-width: 1px;
+    padding: 20px;
+    margin: 20px;
+}
+
+#five-day-label {
+    font-weight: bold;
+    font-size: large;
+}
+
+.day-forecast {
+    margin-right: 20px;
+    text-align: center;
 }

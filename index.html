@@ -13,29 +13,35 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h3 id="search-text">Search for a City:</h3>
-                <input type="text" id="input-city">
-                <button type="submit" id="city-search-button"><i class="fa fa-search"></i></button>
-                <div id="city-history"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 id="search-text">Search for a City:</h3>
+                        <input type="text" id="input-city">
+                        <button type="submit" id="city-search-button"><i class="fa fa-search"></i></button>    
+                    </div>
+                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="city-history" class="btn-group-vertical"> </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div id="today-forecast">
-                            <div>
-                                <span id="city-name"></span>
-                                <span id="date"></span>
-                                <span><img src="" alt="weather-icon" id="icon" hidden> </span>
-                            </div>
-                            <div id="temperature"></div>
-                            <br>
-                            <div id="humidity"></div>
-                            <br>
-                            <div id="wind-speed"></div>
-                            <br>
-                            <div id="uv-index"></div>
-                            <br>
+                    <div id="today-weather" class="col-md-12">
+                        <div id="city-banner">
+                            <span id="city-name"></span>
+                            <span id="date"></span>
+                            <span><img src="" alt="weather-icon" id="icon" hidden> </span>
                         </div>
+                        <div id="temperature"></div>
+                        <br>
+                        <div id="humidity"></div>
+                        <br>
+                        <div id="wind-speed"></div>
+                        <br>
+                        <div><span id="uv-index"></span><span id="uv-index-value"></span></div>
+                        <br>
                     </div>
                 </div>
                 <div id="five-day-label" class="row"></div>

@@ -9,19 +9,26 @@ var MODERATE_UV_INDEX_MAX = 5;
 //array of objects (each object contains the city name and a lastVisited flag indicating whether this was the last search item)
 var cityArray = [];
 
-//object: city, last visited
+function addCityToPage(city) {
+    $("#city-history").append($("<button>").addClass("btn btn-secondary city-button").text(city).attr("data-city", city).on("click", processCityButton));
+}
+
 function getWeatherInfo(city) {
     if (!cityArray.find(function(item) { return item.city === city;})) {
         cityArray.push({city: city, lastVisited: true});
-        $("#city-history").append($("<button>").text(city).attr("data-city", city).on("click", processCityButton));
-        cityArray.forEach(function(item, index) {
-            if (item.city != city) {
-                item.lastVisited = false;
-            }
-        });
-
-        localStorage.setItem("weather", JSON.stringify(cityArray));
+        addCityToPage(city);
     }
+
+    cityArray.forEach(function(item, index) {
+        if (item.city != city) {
+            item.lastVisited = false;
+        }
+        else {
+            item.lastVisited = true;
+        }
+    });
+
+    localStorage.setItem("weather", JSON.stringify(cityArray));    
 
     $("#city-name").text(city);
     $("#date").text(moment().format("l"));
@@ -47,7 +54,8 @@ function getWeatherInfo(city) {
                 backgroundColor = "red";
             }
 
-            $("#uv-index").text("UV Index: " + response.value).css("background-color", backgroundColor);
+            $("#uv-index").text("UV Index: ");
+            $("#uv-index-value").text(response.value).css("background-color", backgroundColor);
         });
 
         query = forecastURL + apiKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&units=imperial";
@@ -76,7 +84,8 @@ function processCityButton(event) {
 
 function processInput(event) {
     event.preventDefault();
-    var city = $("#input-city").val();
+    var city = $("#input-city").val().toLowerCase();
+    city = city[0].toUpperCase() + city.substring(1, city.length);
     console.log(city);
     getWeatherInfo(city);
 }
@@ -85,7 +94,7 @@ $(document).ready(function() {
     cityArray = JSON.parse(localStorage.getItem("weather"));
     if (cityArray) {
         cityArray.forEach(function(item, index) {
-            $("#city-history").append($("<button>").text(item.city).attr("data-city", item.city).on("click", processCityButton));
+            addCityToPage(item.city);
             if (item.lastVisited === true) {
                 getWeatherInfo(item.city);
             }
