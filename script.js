@@ -14,24 +14,6 @@ function addCityToPage(city) {
 }
 
 function getWeatherInfo(city) {
-    if (!cityArray.find(function(item) { return item.city === city;})) {
-        cityArray.push({city: city, lastVisited: true});
-        addCityToPage(city);
-    }
-
-    cityArray.forEach(function(item, index) {
-        if (item.city != city) {
-            item.lastVisited = false;
-        }
-        else {
-            item.lastVisited = true;
-        }
-    });
-
-    localStorage.setItem("weather", JSON.stringify(cityArray));    
-
-    $("#city-name").text(city);
-    $("#date").text(moment().format("l"));
     query = currentWeatherURL + apiKey + "&q=" + city + "&units=imperial";
     $.ajax({url: query, method: "GET"}).then(function(response) {
         console.log(response);
@@ -71,6 +53,25 @@ function getWeatherInfo(city) {
                     $("#day" + index).find("#forecast-humidity").text("Humidity: " + item.humidity + "%");
                 }
             });
+
+            $("#city-name").text(city);
+            $("#date").text(moment().format("l"));
+
+            if (!cityArray.find(function(item) { return item.city === city;})) {
+                cityArray.push({city: city, lastVisited: true});
+                addCityToPage(city);
+            }
+        
+            cityArray.forEach(function(item, index) {
+                if (item.city != city) {
+                    item.lastVisited = false;
+                }
+                else {
+                    item.lastVisited = true;
+                }
+            });
+        
+            localStorage.setItem("weather", JSON.stringify(cityArray));            
         });
     });
 }
