@@ -1,0 +1,19 @@
+header {
+    font-weight: bolder;
+    color: whitesmoke;
+    background-color: gray;
+    font-size: x-large;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#search-text {
+    font-weight: bold;
+}
+
+.day-forecast {
+    background-color: lightskyblue;
+    padding-right: 10px;
+    border-right: 20px;
+}

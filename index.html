@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header> Weather Dashboard </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 id="search-text">Search for a City:</h3>
+                <input type="text" id="input-city">
+                <button type="submit" id="city-search-button"><i class="fa fa-search"></i></button>
+                <div id="city-history"></div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="today-forecast">
+                            <div>
+                                <span id="city-name"></span>
+                                <span id="date"></span>
+                                <span><img src="" alt="weather-icon" id="icon" hidden> </span>
+                            </div>
+                            <div id="temperature"></div>
+                            <br>
+                            <div id="humidity"></div>
+                            <br>
+                            <div id="wind-speed"></div>
+                            <br>
+                            <div id="uv-index"></div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div id="five-day-label" class="row"></div>
+                <div class="row" id="five-day-forecast">
+                    <div id="day1" class="col-md day-forecast">
+                        <div id="forecast-date"></div>
+                        <div><img src="" alt="weather-icon" id="forecast-icon" hidden></div>
+                        <div id="forecast-temp"></div>
+                        <div id="forecast-humidity"></div>
+                    </div>
+                    <div id="day2" class="col-md day-forecast">
+                        <div id="forecast-date"></div>
+                        <div><img src="" alt="weather-icon" id="forecast-icon" hidden></div>
+                        <div id="forecast-temp"></div>
+                        <div id="forecast-humidity"></div>
+                    </div>
+                    <div id="day3" class="col-md day-forecast">
+                        <div id="forecast-date"></div>
+                        <div><img src="" alt="weather-icon" id="forecast-icon" hidden></div>
+                        <div id="forecast-temp"></div>
+                        <div id="forecast-humidity"></div>
+                    </div>
+                    <div id="day4" class="col-md day-forecast">
+                        <div id="forecast-date"></div>
+                        <div><img src="" alt="weather-icon" id="forecast-icon" hidden></div>
+                        <div id="forecast-temp"></div>
+                        <div id="forecast-humidity"></div>
+                    </div>
+                    <div id="day5" class="col-md day-forecast">
+                        <div id="forecast-date"></div>
+                        <div><img src="" alt="weather-icon" id="forecast-icon" hidden></div>
+                        <div id="forecast-temp"></div>
+                        <div id="forecast-humidity"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
