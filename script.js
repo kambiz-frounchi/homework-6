@@ -65,7 +65,7 @@ function getWeatherInfo(city) {
 
             response.daily.forEach(function(item, index) {
                 if ((index > 0) && (index < 6)) {
-                    $("#day" + index).find("#forecast-date").text(moment.utc(item.dt).format("l"));
+                    $("#day" + index).find("#forecast-date").text(moment(item.dt * 1000).format("l"));
                     $("#day" + index).find("#forecast-icon").attr("src", "http://openweathermap.org/img/wn/" + item.weather[0].icon + "@2x.png").removeAttr("hidden");
                     $("#day" + index).find("#forecast-temp").text("Temp: " + item.temp.day + " \xB0F");
                     $("#day" + index).find("#forecast-humidity").text("Humidity: " + item.humidity + "%");
