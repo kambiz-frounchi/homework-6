@@ -3,6 +3,9 @@ var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?";
 var forecastURL = "https://api.openweathermap.org/data/2.5/onecall?";
 var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?";
 
+var LOW_UV_INDEX_MAX = 2;
+var MODERATE_UV_INDEX_MAX = 5;
+
 //array of objects (each object contains the city name and a lastVisited flag indicating whether this was the last search item)
 var cityArray = [];
 
@@ -32,7 +35,19 @@ function getWeatherInfo(city) {
         query = uvIndexURL + apiKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
         $.ajax({url: query, method: "GET"}).then(function(response) {
             console.log(response);
-            $("#uv-index").text("UV Index: " + response.value);
+            var backgroundColor = "red";
+            if (response.value <= LOW_UV_INDEX_MAX) {
+                //favorable:green
+                backgroundColor = "green";
+            } else if (response.value <= MODERATE_UV_INDEX_MAX) {
+                //moderate: yellow
+                backgroundColor = "yellow";
+            } else  {
+                //severe
+                backgroundColor = "red";
+            }
+
+            $("#uv-index").text("UV Index: " + response.value).css("background-color", backgroundColor);
         });
 
         query = forecastURL + apiKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&units=imperial";
