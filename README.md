@@ -1,8 +1,14 @@
-# 06 Server-Side APIs: Weather Dashboard
+# Weather Dashboard
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+This app (https://kambiz-frounchi.github.io/homework-6/) is a weather dashboard that will run in the browser. It shows the current weather and five day forecast of the city the user is searching for. It also keeps a history of the already searched cities for convenient user access. When opening the weather dashboard, it presents the last searched city forecast.
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+In terms of the implementation, it uses the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. Three API are used, one for retrieving current weather, one for the five day forecast and one for the UV index (as the current weather API does not return the UV index).  Once the weather info is retrieved, the required HTML elements are dynamically created along with their styling attributes. jQuery is used to facilitate DOM manipulation and also for making AJAX calls. [Moment API](https://momentjs.com/) is used for Date display and manipulation. Bootsrap is used for the styling framework. For persistance, local browser storage is used.
+
+The following image demonstrates the application functionality:
+
+![weather dashboard demo](./Screenshots/WeatherDashboard.png)
+
+Here are the user story and acceptance criteria:
 
 ## User Story
 
@@ -29,18 +35,3 @@ THEN I am again presented with current and future conditions for that city
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
-
-The following image demonstrates the application functionality:
-
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
